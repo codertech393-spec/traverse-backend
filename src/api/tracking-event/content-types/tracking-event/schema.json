@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tracking-events",
+  "info": {
+    "singularName": "tracking-event",
+    "pluralName": "tracking-events",
+    "displayName": "Tracking Event"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "datetime"
+    },
+    "package": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::package.package",
+      "inversedBy": "trackingEvents"
+    },
+    "staTus": {
+      "type": "enumeration",
+      "enum": [
+        "Shipment Received",
+        "In Transit",
+        "Transferred to Carrier",
+        "Out for Delivery",
+        "Delivered",
+        "Delayed",
+        "Customs Clearance",
+        "Exception"
+      ]
+    }
+  }
+}

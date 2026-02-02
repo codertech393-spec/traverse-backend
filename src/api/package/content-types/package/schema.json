@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "packages",
+  "info": {
+    "singularName": "package",
+    "pluralName": "packages",
+    "displayName": "Packages"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "trackingNumber": {
+      "type": "uid"
+    },
+    "staTus": {
+      "type": "enumeration",
+      "enum": [
+        "Received",
+        "In Transit",
+        "Out for Delivery",
+        "Delivered"
+      ]
+    },
+    "currentLocation": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "estimatedDelivery": {
+      "type": "date"
+    },
+    "carrierChain": {
+      "type": "string"
+    },
+    "trackingEvents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tracking-event.tracking-event",
+      "mappedBy": "package"
+    }
+  }
+}
