@@ -657,13 +657,7 @@ export interface ApiPackagePackage extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    staTus: Schema.Attribute.Enumeration<
-      ['Received', 'In Transit', 'Out for Delivery', 'Delivered']
-    >;
-    trackingEvents: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::tracking-event.tracking-event'
-    >;
+    staTus: Schema.Attribute.String;
     trackingNumber: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -675,7 +669,7 @@ export interface ApiTrackingEventTrackingEvent
   extends Struct.CollectionTypeSchema {
   collectionName: 'tracking-events';
   info: {
-    displayName: 'Tracking Event';
+    displayName: 'Tracking-events';
     pluralName: 'tracking-events';
     singularName: 'tracking-event';
   };
@@ -693,20 +687,9 @@ export interface ApiTrackingEventTrackingEvent
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String;
-    package: Schema.Attribute.Relation<'manyToOne', 'api::package.package'>;
+    package: Schema.Attribute.Relation<'oneToOne', 'api::package.package'>;
     publishedAt: Schema.Attribute.DateTime;
-    staTus: Schema.Attribute.Enumeration<
-      [
-        'Shipment Received',
-        'In Transit',
-        'Transferred to Carrier',
-        'Out for Delivery',
-        'Delivered',
-        'Delayed',
-        'Customs Clearance',
-        'Exception',
-      ]
-    >;
+    staTus: Schema.Attribute.String;
     timestamp: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -15,13 +15,7 @@
       "type": "uid"
     },
     "staTus": {
-      "type": "enumeration",
-      "enum": [
-        "Received",
-        "In Transit",
-        "Out for Delivery",
-        "Delivered"
-      ]
+      "type": "string"
     },
     "currentLocation": {
       "type": "string"
@@ -34,12 +28,6 @@
     },
     "carrierChain": {
       "type": "string"
-    },
-    "trackingEvents": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tracking-event.tracking-event",
-      "mappedBy": "package"
     }
   }
 }

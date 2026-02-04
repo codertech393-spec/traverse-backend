@@ -4,7 +4,7 @@
   "info": {
     "singularName": "tracking-event",
     "pluralName": "tracking-events",
-    "displayName": "Tracking Event"
+    "displayName": "Tracking-events"
   },
   "options": {
     "draftAndPublish": false
@@ -19,22 +19,11 @@
     },
     "package": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::package.package",
-      "inversedBy": "trackingEvents"
+      "relation": "oneToOne",
+      "target": "api::package.package"
     },
     "staTus": {
-      "type": "enumeration",
-      "enum": [
-        "Shipment Received",
-        "In Transit",
-        "Transferred to Carrier",
-        "Out for Delivery",
-        "Delivered",
-        "Delayed",
-        "Customs Clearance",
-        "Exception"
-      ]
+      "type": "string"
     }
   }
 }
