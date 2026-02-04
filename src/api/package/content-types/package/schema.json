@@ -28,6 +28,12 @@
     },
     "carrierChain": {
       "type": "string"
+    },
+    "trackingEvents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tracking-event.tracking-event",
+      "mappedBy": "package"
     }
   }
 }

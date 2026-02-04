@@ -658,6 +658,10 @@ export interface ApiPackagePackage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     staTus: Schema.Attribute.String;
+    trackingEvents: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tracking-event.tracking-event'
+    >;
     trackingNumber: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -687,7 +691,7 @@ export interface ApiTrackingEventTrackingEvent
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String;
-    package: Schema.Attribute.Relation<'oneToOne', 'api::package.package'>;
+    package: Schema.Attribute.Relation<'manyToOne', 'api::package.package'>;
     publishedAt: Schema.Attribute.DateTime;
     staTus: Schema.Attribute.String;
     timestamp: Schema.Attribute.DateTime;
