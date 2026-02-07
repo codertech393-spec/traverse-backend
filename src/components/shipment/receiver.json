@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shipment_receivers",
+  "info": {
+    "displayName": "Receiver"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

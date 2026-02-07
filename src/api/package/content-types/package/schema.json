@@ -34,6 +34,21 @@
       "relation": "oneToMany",
       "target": "api::tracking-event.tracking-event",
       "mappedBy": "package"
+    },
+    "shipper": {
+      "type": "component",
+      "component": "shipment.shipper",
+      "repeatable": false
+    },
+    "receiver": {
+      "type": "component",
+      "component": "shipment.receiver",
+      "repeatable": false
+    },
+    "shipmentItems": {
+      "type": "component",
+      "component": "shipment.item",
+      "repeatable": true
     }
   }
 }

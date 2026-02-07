@@ -657,6 +657,9 @@ export interface ApiPackagePackage extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    receiver: Schema.Attribute.Component<'shipment.receiver', false>;
+    shipmentItems: Schema.Attribute.Component<'shipment.item', true>;
+    shipper: Schema.Attribute.Component<'shipment.shipper', false>;
     staTus: Schema.Attribute.String;
     trackingEvents: Schema.Attribute.Relation<
       'oneToMany',
@@ -673,7 +676,7 @@ export interface ApiTrackingEventTrackingEvent
   extends Struct.CollectionTypeSchema {
   collectionName: 'tracking-events';
   info: {
-    displayName: 'Tracking-events';
+    displayName: 'Tracking Event';
     pluralName: 'tracking-events';
     singularName: 'tracking-event';
   };
@@ -681,6 +684,7 @@ export interface ApiTrackingEventTrackingEvent
     draftAndPublish: false;
   };
   attributes: {
+    activity: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

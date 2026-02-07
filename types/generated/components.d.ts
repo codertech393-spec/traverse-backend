@@ -62,6 +62,40 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface ShipmentItem extends Struct.ComponentSchema {
+  collectionName: 'components_shipment_items';
+  info: {
+    displayName: 'Item';
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    quantity: Schema.Attribute.Integer & Schema.Attribute.Required;
+    weight: Schema.Attribute.Decimal & Schema.Attribute.Required;
+  };
+}
+
+export interface ShipmentReceiver extends Struct.ComponentSchema {
+  collectionName: 'components_shipment_receivers';
+  info: {
+    displayName: 'Receiver';
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ShipmentShipper extends Struct.ComponentSchema {
+  collectionName: 'components_shipment_shippers';
+  info: {
+    displayName: 'Shipper';
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -70,6 +104,9 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shipment.item': ShipmentItem;
+      'shipment.receiver': ShipmentReceiver;
+      'shipment.shipper': ShipmentShipper;
     }
   }
 }
